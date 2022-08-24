@@ -25,11 +25,22 @@ class planet:
         self.mass = mass
         self.x_velocity = 0
         self.y_velocity = 0
+
+        # Orbit
+        self.orbit = []
     
     def draw(self, win):
         x = self.x * SCALE + WIDTH/2
-        y = self.y * SCALE + HEIGHT/2
+        y = self.y * SCALE + HEIGHT/2            
+
         pygame.draw.circle(win, self.color, (x,y), self.radius)
+
+    def draw_orbit(self, win):
+        for step in self.orbit:
+            x,y = step
+            x = x * SCALE + WIDTH/2
+            y = y * SCALE + HEIGHT/2
+            pygame.draw.circle(win, self.color, (x,y), 1)
     
     def attraction(self, planets):
         force_x, force_y = 0, 0
@@ -53,6 +64,7 @@ class planet:
 
         self.x += self.x_velocity * TIME_STEP
         self.y += self.y_velocity * TIME_STEP
+        self.orbit.append((self.x,self.y))
 
 
 sun = planet(0,0, 30, (255,255,0), 1.98892 * 10**30)
@@ -84,6 +96,7 @@ while True:
     for planet in planets:
         planet.attraction(planets)
         planet.draw(screen)
+        planet.draw_orbit(screen)
         
     frame_rate.tick(60)
     pygame.display.update()  # 
