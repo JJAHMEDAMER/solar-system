@@ -55,18 +55,18 @@ class planet:
         self.y += self.y_velocity * TIME_STEP
 
 
-sun = planet(0,0, 30, (255,255,255), 1.98892 * 10**30)
+sun = planet(0,0, 30, (255,255,0), 1.98892 * 10**30)
 
-mercury = planet(-0.387 * ASTRONOMICAL_UNIT,1,8,(255,255,255), 3.3 * 10**23)
+mercury = planet(-0.387 * ASTRONOMICAL_UNIT,1,8,(255,0,0), 3.3 * 10**23)
 mercury.y_velocity = 47.4 * 1000
 
-venus = planet(-0.723*ASTRONOMICAL_UNIT, 0, 14, (255,255,255), 6.39 * 10**23)
+venus = planet(-0.723*ASTRONOMICAL_UNIT, 0, 14, (255,0,125), 6.39 * 10**23)
 venus.y_velocity = 35.02 * 1000
 
-earth = planet(-1*ASTRONOMICAL_UNIT, 0, 16, (255,255,255), 5.974 * 10**24)
+earth = planet(-1*ASTRONOMICAL_UNIT, 0, 16, (0,0,255), 5.974 * 10**24)
 earth.y_velocity = 29.783 * 1000 
 
-mars = planet(-1.524*ASTRONOMICAL_UNIT, 0, 12, (255,255,255), 4.8685 * 10**24)
+mars = planet(-1.524*ASTRONOMICAL_UNIT, 0, 12, (255,125,0), 4.8685 * 10**24)
 mars.y_velocity = 24.077 * 1000
 
 
